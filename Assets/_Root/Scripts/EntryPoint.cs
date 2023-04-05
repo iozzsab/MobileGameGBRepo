@@ -5,6 +5,8 @@ internal class EntryPoint : MonoBehaviour
 {
     private const float SpeedCar = 15f;
     private const GameState InitialState = GameState.Start;
+   
+    
 
     [SerializeField] private Transform _placeForUi;
 
