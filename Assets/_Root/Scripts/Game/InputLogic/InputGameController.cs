@@ -19,14 +19,14 @@ namespace Game.InputLogic
             _view.Init(leftMove, rightMove, car.Speed);
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         private BaseInputView LoadView()
         {
             GameObject prefab = ResourcesLoader.LoadPrefab(_resourcePath);
             GameObject objectView = Object.Instantiate(prefab);
             AddGameObject(objectView);
 
-            BaseInputView view = objectView.GetComponent<BaseInputView>();
-            return view;
+            return objectView.GetComponent<BaseInputView>();
         }
     }
 }
