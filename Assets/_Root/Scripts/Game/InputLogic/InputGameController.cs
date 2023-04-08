@@ -6,9 +6,17 @@ namespace Game.InputLogic
 {
     internal class InputGameController : BaseController
     {
-        private readonly ResourcePath _resourcePath = new ResourcePath("Prefabs/KeyboardMoveController");
+        private readonly ResourcePath _resourcePath = GetResourcePath();
         private BaseInputView _view;
 
+        private static ResourcePath GetResourcePath()
+        {
+#if UNITY_EDITOR
+            return new ResourcePath("Prefabs/KeyboardMoveController");
+#elif UNITY_ANDROID
+            return new ResourcePath("Prefabs/MobileSingleStickControl");
+#endif
+        }
 
         public InputGameController(
             SubscriptionProperty<float> leftMove,
