@@ -4,7 +4,7 @@ using UnityEngine;
 
 using Object = UnityEngine.Object;
 
-internal abstract class BaseController : IDisposable
+public abstract class BaseController : IDisposable
 {
     private List<BaseController> _baseControllers;
     private List<GameObject> _gameObjects;
