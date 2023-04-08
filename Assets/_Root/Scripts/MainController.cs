@@ -50,6 +50,7 @@ internal class MainController : BaseController
                 _mainMenuController?.Dispose();
                 break;
             default:
+                _settingsMenuController?.Dispose();
                 _mainMenuController?.Dispose();
                 _gameController?.Dispose();
                 break;
