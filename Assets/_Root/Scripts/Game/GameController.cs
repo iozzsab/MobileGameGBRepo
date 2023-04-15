@@ -10,6 +10,7 @@ namespace Game
     {
         public GameController(ProfilePlayer profilePlayer)
         {
+            
             var leftMoveDiff = new SubscriptionProperty<float>();
             var rightMoveDiff = new SubscriptionProperty<float>();
 
@@ -21,6 +22,7 @@ namespace Game
 
             var carController = new CarController();
             AddController(carController);
+            
         }
     }
 }

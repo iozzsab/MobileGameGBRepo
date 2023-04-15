@@ -1,5 +1,9 @@
+using System.Collections.Generic;
 using Profile;
+using Tool.Analytics;
 using UnityEngine;
+using UnityEngine.Analytics;
+
 
 internal class EntryPoint : MonoBehaviour
 {
@@ -9,14 +13,27 @@ internal class EntryPoint : MonoBehaviour
     
 
     [SerializeField] private Transform _placeForUi;
+    [SerializeField] private AnalyticsManager _analyticsManager;
 
     private MainController _mainController;
 
 
-    private void Start()
+    private void Start() 
     {
         var profilePlayer = new ProfilePlayer(SpeedCar, InitialState);
-        _mainController = new MainController(_placeForUi, profilePlayer);
+        _mainController = new MainController(_placeForUi, profilePlayer, _analyticsManager);
+        
+        _analyticsManager.SendMainMenuOpenEvent();
+        
+        // Analytics.CustomEvent("MainMenuOpened", new Dictionary<string, object>()
+        // {
+        //     ["speed"] = 5,
+        //     ["player_name"] = "Jack"
+        //
+        // });
+        
+        //Analytics.Transaction()
+
     }
 
     private void OnDestroy()

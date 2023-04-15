@@ -1,6 +1,7 @@
 using Ui;
 using Game;
 using Profile;
+using Tool.Analytics;
 using UnityEngine;
 
 internal class MainController : BaseController
@@ -12,12 +13,14 @@ internal class MainController : BaseController
     private SettingsMenuController _settingsMenuController;
     
     private GameController _gameController;
+    private AnalyticsManager _analyticsManager;
 
 
-    public MainController(Transform placeForUi, ProfilePlayer profilePlayer)
+    public MainController(Transform placeForUi, ProfilePlayer profilePlayer, AnalyticsManager analyticsManager)
     {
         _placeForUi = placeForUi;
         _profilePlayer = profilePlayer;
+        _analyticsManager = analyticsManager;
 
         profilePlayer.CurrentState.SubscribeOnChange(OnChangeGameState);
         OnChangeGameState(_profilePlayer.CurrentState.Value);
@@ -37,7 +40,7 @@ internal class MainController : BaseController
         switch (state)
         {
             case GameState.Start:
-                _mainMenuController = new MainMenuController(_placeForUi, _profilePlayer);
+                _mainMenuController = new MainMenuController(_placeForUi, _profilePlayer, _analyticsManager);
                 _gameController?.Dispose();
                 _settingsMenuController?.Dispose();
                 break;
