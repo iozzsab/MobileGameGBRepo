@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Profile;
+using Tool.Ads;
 using Tool.Analytics;
 using UnityEngine;
 using UnityEngine.Analytics;
@@ -14,6 +15,7 @@ internal class EntryPoint : MonoBehaviour
 
     [SerializeField] private Transform _placeForUi;
     [SerializeField] private AnalyticsManager _analyticsManager;
+    [SerializeField] private UnityAdsTools _adsTools;
 
     private MainController _mainController;
 
@@ -21,7 +23,7 @@ internal class EntryPoint : MonoBehaviour
     private void Start() 
     {
         var profilePlayer = new ProfilePlayer(SpeedCar, InitialState);
-        _mainController = new MainController(_placeForUi, profilePlayer, _analyticsManager);
+        _mainController = new MainController(_placeForUi, profilePlayer, _analyticsManager, _adsTools);
         
         _analyticsManager.SendMainMenuOpenEvent();
         

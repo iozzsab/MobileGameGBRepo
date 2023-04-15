@@ -144,6 +144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5701922999806103246}
+  - component: {fileID: 8138352709071833852}
   - component: {fileID: 4286019975011177630}
   - component: {fileID: 4307412499322084752}
   - component: {fileID: 5814247346401694788}
@@ -175,6 +176,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 195.8}
   m_SizeDelta: {x: 150, y: 45}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &8138352709071833852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3445557156554246252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productId: 1010
+  buttonType: 0
+  consumePurchase: 1
+  onTransactionsRestored:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  priceText: {fileID: 0}
 --- !u!222 &4286019975011177630
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using Profile;
 using Tool;
+using Tool.Ads;
 using Tool.Analytics;
 using UnityEditor;
 using UnityEngine;
@@ -12,19 +13,25 @@ namespace Ui
         private readonly ProfilePlayer _profilePlayer;
         private readonly MainMenuView _view;
         private AnalyticsManager _analyticsManager;
+        private UnityAdsTools _adsTools;
 
 
-        public MainMenuController(Transform placeForUi, ProfilePlayer profilePlayer, AnalyticsManager analyticsManager)
+        public MainMenuController(Transform placeForUi, ProfilePlayer profilePlayer, AnalyticsManager analyticsManager, UnityAdsTools adsTools)
         {
             _profilePlayer = profilePlayer;
             _view = LoadView(placeForUi);
             _view.Init(StartGame);
             _view.InitSettings(Settings);
-            // _view.InitAds(Ads);
+             _view.InitAds(Ads);
             // _view.InitBuy(Purchase);
-            
+            _adsTools = adsTools;
             _analyticsManager = analyticsManager; 
             
+        }
+
+        private void Ads()
+        {
+ _adsTools.StartAds();
         }
 
         private MainMenuView LoadView(Transform placeForUi)
@@ -44,6 +51,8 @@ namespace Ui
 
         private void Settings() =>
             _profilePlayer.CurrentState.Value = GameState.Settings;
+        
+        
         
 
         
