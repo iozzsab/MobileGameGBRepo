@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66fd657f9dc45b398d367057e591afd, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  SpeedCar: 0
-  InitialState: 0
+  <SpeedCar>k__BackingField: 52
