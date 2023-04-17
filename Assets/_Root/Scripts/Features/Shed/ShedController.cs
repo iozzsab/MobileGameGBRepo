@@ -4,16 +4,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Features.Inventory;
+using Features.Shed.IDependencies;
 using Features.Shed.Upgrade;
 using JetBrains.Annotations;
 using Object = UnityEngine.Object;
 
 namespace Features.Shed
 {
-    internal interface IShedController
-    {
-    }
-
     internal class ShedController : BaseController, IShedController
     {
         private readonly ResourcePath _viewPath = new ResourcePath("Prefabs/Shed/ShedView");
@@ -98,6 +95,11 @@ namespace Features.Shed
             foreach (string itemId in equippedItems)
                 if (upgradeHandlers.TryGetValue(itemId, out IUpgradeHandler handler))
                     handler.Upgrade(upgradable);
+        }
+
+        public void Initialize()
+        {
+            throw new NotImplementedException();
         }
     }
 }
