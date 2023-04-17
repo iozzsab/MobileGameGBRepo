@@ -5,7 +5,7 @@ namespace Game.TapeBackground
 {
     internal class TapeBackgroundController : BaseController
     {
-        private readonly ResourcePath _viewPath = new ResourcePath("Prefabs/Background");
+        private readonly ResourcePath _viewPath = new ResourcePath("Prefabs/Game/Background");
 
         private readonly SubscriptionProperty<float> _diff;
         private readonly ISubscriptionProperty<float> _leftMove;

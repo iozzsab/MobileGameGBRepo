@@ -1,31 +1,21 @@
-﻿using JoostenProductions;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
 
 namespace Game.InputLogic
 {
     internal class InputKeyboard : BaseInputView
     {
-        private void Start() =>
-            UpdateManager.SubscribeToUpdate(Move);
-
-        private void OnDestroy() =>
-            UpdateManager.UnsubscribeFromUpdate(Move);
+        [SerializeField] private float _inputMultiplier = 0.01f;
 
 
-        private void Move()
+        protected override void Move()
         {
-            float horizontalInput = Input.GetAxis("Horizontal");
-            if (horizontalInput > 0)
-            {
-                float moveValue = _speed * Time.deltaTime;
-                OnRightMove(moveValue);
-            }
-            else if (horizontalInput < 0)
-            {
-                float moveValue = _speed * Time.deltaTime;
+            float moveValue = Speed * _inputMultiplier * Time.deltaTime;
+
+            if (Input.GetKey(KeyCode.LeftArrow))
                 OnLeftMove(moveValue);
-            }
+
+            if (Input.GetKey(KeyCode.RightArrow))
+                OnRightMove(moveValue);
         }
     }
 }

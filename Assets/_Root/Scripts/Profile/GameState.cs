@@ -4,7 +4,8 @@ namespace Profile
     {
         None,
         Start,
-        Game,
         Settings,
+        Shed,
+        Game
     }
 }
