@@ -127,6 +127,13 @@ namespace Rewards
                 case RewardType.Diamond:
                     CurrencyView.Instance.AddDiamond(reward.CountCurrency);
                     break;
+                case RewardType.Coin:
+                    CurrencyView.Instance.AddDCoin(reward.CountCurrency);
+                    break;
+                case RewardType.Crystal:
+                    CurrencyView.Instance.AddCrystal(reward.CountCurrency);
+                    break;
+                
             }
 
             _view.TimeGetReward = DateTime.UtcNow;

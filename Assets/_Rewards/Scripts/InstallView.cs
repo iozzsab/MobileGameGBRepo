@@ -6,16 +6,23 @@ namespace Rewards
     {
         [SerializeField] private DailyRewardView _dailyRewardView;
 
+
         private DailyRewardController _dailyRewardController;
 
 
-        private void Awake() =>
+        private void Awake()
+        {
             _dailyRewardController = new DailyRewardController(_dailyRewardView);
+        }
 
-        private void Start() =>
+        private void Start()
+        {
             _dailyRewardController.Init();
+        }
 
-        private void OnDestroy() =>
+        private void OnDestroy()
+        {
             _dailyRewardController.Deinit();
+        }
     }
 }

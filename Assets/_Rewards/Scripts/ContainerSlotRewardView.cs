@@ -16,7 +16,7 @@ namespace Rewards
         public void SetData(Reward reward, int countDay, bool isSelected)
         {
             _iconCurrency.sprite = reward.IconCurrency;
-            _textDays.text = $"Day {countDay}";
+            _textDays.text = $"Period {countDay}";
             _countReward.text = reward.CountCurrency.ToString();
 
             UpdateBackground(isSelected);
