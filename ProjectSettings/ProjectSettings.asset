@@ -154,7 +154,6 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.Gekbrains.CarGameLessons
-    Standalone: com.Gekbrains.CarGameLessons
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -832,13 +831,11 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
-    Build: 0
-    Collab: 0
     Game Performance: 0
-    Legacy Analytics: 0
+    Legacy Analytics: 1
     Purchasing: 0
-    UDP: 0
-    Unity Ads: 0
+    Unity Ads: 1
+    Purchasing: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -852,11 +849,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: de2a46bc-29b5-4ce9-9c94-13d11247b374
+  cloudProjectId: 2ed49957-4552-4f60-bb29-72edbea88639
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: CarGameLessons
-  organizationId: unity_621d9b94596ae1452395
+  organizationId: anton_kerp
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

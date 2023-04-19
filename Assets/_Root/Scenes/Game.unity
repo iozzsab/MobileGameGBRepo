@@ -365,7 +365,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1219474787}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &959890336
 MonoBehaviour:
@@ -489,6 +489,7 @@ Transform:
   - {fileID: 933958559}
   - {fileID: 205816523}
   - {fileID: 959890335}
+  - {fileID: 933958559}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -633,6 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1f1f3a311c471e921b56ebcc0f1a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speedCar: 15
+  _jumpHeightCar: 2
   _initialState: 1
-  _gameConfig: {fileID: 11400000, guid: 0d4296ec141907d42bd6e5e5efd259e2, type: 2}
   _placeForUi: {fileID: 1903552}
