@@ -21,6 +21,7 @@ namespace Tween
         [SerializeField] private Ease _curveEase = Ease.Linear;
         [SerializeField] private float _duration = 0.6f;
         [SerializeField] private float _strength = 30f;
+        [SerializeField] private float _delayAnim = 1f;
         
         
         
@@ -61,7 +62,7 @@ namespace Tween
         { 
             _coroutine = StartCoroutine(Playing());
         }
-
+        
         [ContextMenu(nameof(Stop))]
         public void Stop()
         {
@@ -71,6 +72,7 @@ namespace Tween
             StopCoroutine(_coroutine);
             _coroutine = null;
         }
+        
         
         private IEnumerator Playing()
         {
@@ -87,10 +89,16 @@ namespace Tween
                         break;
                 }
                 
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(DelayAnim);
             }
             StartCoroutine(Playing());
         }
+        public float DelayAnim 
+        {
+            get { return _delayAnim; }
+            set { _delayAnim = value; }
+        }
+        
         
     }
 }

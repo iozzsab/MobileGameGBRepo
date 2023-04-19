@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ namespace Tween
         public static string AnimationTypeName => nameof(_animationButtonType);
         public static string CurveEaseName => nameof(_curveEase);
         public static string DurationName => nameof(_duration);
+        public static string DelayAnimation => nameof(_delayAnim);
+        
 
         [SerializeField] private RectTransform _rectTransform;
 
@@ -18,8 +21,10 @@ namespace Tween
         [SerializeField] private Ease _curveEase = Ease.Linear;
         [SerializeField] private float _duration = 0.6f;
         [SerializeField] private float _strength = 30f;
+        [SerializeField] private float _delayAnim = 5f;
 
 
+        [SerializeField] private float _ded = 5f;
         protected override void Awake()
         {
             base.Awake();
@@ -44,6 +49,7 @@ namespace Tween
 
         private void ActivateAnimation()
         {
+            Delay(_delayAnim);
             switch (_animationButtonType)
             {
                 case AnimationButtonType.ChangeRotation:
@@ -54,6 +60,16 @@ namespace Tween
                     _rectTransform.DOShakeAnchorPos(_duration, Vector2.one * _strength).SetEase(_curveEase);
                     break;
             }
+        }
+
+        
+        private void Delay(float _delayAnim)
+        {
+            StartCoroutine(DelayCoroutine(_delayAnim));
+        }
+        private IEnumerator DelayCoroutine(float _delayAnim)
+        {
+            yield return new WaitForSeconds(_delayAnim);
         }
     }
 }
