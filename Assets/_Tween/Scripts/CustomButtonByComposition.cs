@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,9 @@ namespace Tween
     [RequireComponent(typeof(RectTransform))]
     public class CustomButtonByComposition : MonoBehaviour
     {
+        private Coroutine _coroutine;
+        
+        
         [Header("Components")]
         [SerializeField] private Button _button;
         [SerializeField] private RectTransform _rectTransform;
@@ -17,7 +21,9 @@ namespace Tween
         [SerializeField] private Ease _curveEase = Ease.Linear;
         [SerializeField] private float _duration = 0.6f;
         [SerializeField] private float _strength = 30f;
-
+        
+        
+        
 
         private void OnValidate() => InitComponents();
         private void Awake() => InitComponents();
@@ -48,5 +54,43 @@ namespace Tween
                     break;
             }
         }
+        
+        
+        [ContextMenu(nameof(Play))]
+        public void Play()
+        { 
+            _coroutine = StartCoroutine(Playing());
+        }
+
+        [ContextMenu(nameof(Stop))]
+        public void Stop()
+        {
+            if (_coroutine == null)
+                return;
+
+            StopCoroutine(_coroutine);
+            _coroutine = null;
+        }
+        
+        private IEnumerator Playing()
+        {
+            for (float t = 0; t < _duration; t += Time.deltaTime)
+            {
+                switch (_animationButtonType)
+                {
+                    case AnimationButtonType.ChangeRotation:
+                        _rectTransform.DOShakeRotation(_duration, Vector3.forward * _strength).SetEase(_curveEase);
+                        break;
+
+                    case AnimationButtonType.ChangePosition:
+                        _rectTransform.DOShakeAnchorPos(_duration, Vector2.one * _strength).SetEase(_curveEase);
+                        break;
+                }
+                
+                yield return new WaitForSeconds(1f);
+            }
+            StartCoroutine(Playing());
+        }
+        
     }
 }
