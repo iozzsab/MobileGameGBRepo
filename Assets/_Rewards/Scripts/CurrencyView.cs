@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Rewards
@@ -12,10 +13,10 @@ namespace Rewards
         private static CurrencyView _instance;
         public static CurrencyView Instance => _instance;
 
-        [SerializeField] private CurrencySlotView _currencyWood;
-        [SerializeField] private CurrencySlotView _currentDiamond;
-        [SerializeField] private CurrencySlotView _currentCoin;
-        [SerializeField] private CurrencySlotView _currentCrystal;
+        [SerializeField] [CanBeNull] private CurrencySlotView _currencyWood;
+        [SerializeField] [CanBeNull] private CurrencySlotView _currentDiamond;
+        [SerializeField] [CanBeNull] private CurrencySlotView _currentCoin;
+        [SerializeField] [CanBeNull] private CurrencySlotView _currentCrystal;
 
         private int Wood
         {
@@ -48,10 +49,10 @@ namespace Rewards
 
         private void Start()
         {
-            _currencyWood.SetData(Wood);
-            _currentDiamond.SetData(Diamond);
-            _currentCoin.SetData(Coin);
-            _currentCrystal.SetData(Crystal);
+            _currencyWood?.SetData(Wood);
+            _currentDiamond?.SetData(Diamond);
+            _currentCoin?.SetData(Coin);
+            _currentCrystal?.SetData(Crystal);
         }
 
 
