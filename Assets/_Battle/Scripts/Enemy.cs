@@ -12,6 +12,11 @@ namespace BattleScripts
         private const float KMoney = 5f;
         private const float KPower = 1.5f;
         private const float MaxHealthPlayer = 20;
+        private const float multiplePower = 0.2f;
+        
+        private const float levelCrime = 1f;
+        private int _levelCrimePlayer;
+        
 
         private readonly string _name;
 
@@ -39,6 +44,10 @@ namespace BattleScripts
                 case DataType.Power:
                     _powerPlayer = playerData.Value;
                     break;
+                
+                case DataType.Crime:
+                    _levelCrimePlayer = playerData.Value;
+                    break;
             }
 
             Debug.Log($"Notified {_name} change to {playerData.DataType:F}");
@@ -46,11 +55,20 @@ namespace BattleScripts
 
         public int CalcPower()
         {
-            int kHealth = CalcKHealth();
-            float moneyRatio = _moneyPlayer / KMoney;
-            float powerRatio = _powerPlayer / KPower;
+            float healthRatio = _healthPlayer / MaxHealthPlayer;
+            float moneyRatio = Mathf.Pow((_moneyPlayer / KMoney), 0.5f);
+            float powerRatio = Mathf.Pow((_powerPlayer / KPower), 0.2f);
+            float crimeRatio = Mathf.Pow((_levelCrimePlayer / levelCrime), 0.1f);
+            float healthMoneyRatio = Mathf.Pow((healthRatio * moneyRatio), 0.3f);
+            float powerHealthRatio = Mathf.Pow((powerRatio / healthRatio), 0.1f);
+            
 
-            return (int)(moneyRatio + kHealth + powerRatio);
+            return Mathf.RoundToInt((healthMoneyRatio + powerHealthRatio) + multiplePower * crimeRatio);
+            // int kHealth = CalcKHealth();
+            // float moneyRatio = _moneyPlayer / KMoney;
+            // float powerRatio = (_powerPlayer / KPower) * 2f;
+            //
+            // return (int)(moneyRatio + kHealth + powerRatio * multiplePower);
         }
 
         private int CalcKHealth() =>
