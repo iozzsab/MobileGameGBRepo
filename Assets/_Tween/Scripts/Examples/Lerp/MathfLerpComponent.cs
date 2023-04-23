@@ -20,6 +20,7 @@ namespace Tween.Examples
         {
             Stop();
             _coroutine = StartCoroutine(Playing());
+            
         }
 
         [ContextMenu(nameof(Stop))]
