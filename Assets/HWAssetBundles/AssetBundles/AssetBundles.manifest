@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 1854928425
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: spritetestbundle
+      Dependencies: {}

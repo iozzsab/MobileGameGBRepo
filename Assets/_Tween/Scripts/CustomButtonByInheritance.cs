@@ -24,18 +24,18 @@ namespace Tween
         [SerializeField] private float _delayAnim = 5f;
 
 
-        [SerializeField] private float _ded = 5f;
+       // [SerializeField] private float _ded = 5f;
         protected override void Awake()
         {
             base.Awake();
             InitRectTransform();
         }
 
-        protected override void OnValidate()
-        {
-            base.OnValidate();
-            InitRectTransform();
-        }
+        // protected override void OnValidate()
+        // {
+        //     // base.OnValidate();
+        //     // InitRectTransform();
+        // }
 
         private void InitRectTransform() =>
             _rectTransform ??= GetComponent<RectTransform>();
