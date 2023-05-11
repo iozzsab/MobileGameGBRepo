@@ -7,11 +7,11 @@ namespace Tool.Notifications.Examples
 {
     internal class NotificationWindow : MonoBehaviour
     {
-        [Header("Settings")]
-        [SerializeField] private NotificationSettings _settings;
+        [Header("Settings")] [SerializeField] private NotificationSettings _settings;
 
-        [Header("Scene Components")]
-        [SerializeField] private Button _buttonNotification;
+        [Header("Scene Components")] [SerializeField]
+        private Button _buttonNotification;
+
 
         private INotificationScheduler _scheduler;
 
@@ -22,11 +22,16 @@ namespace Tool.Notifications.Examples
             _scheduler = schedulerFactory.Create();
         }
 
-        private void OnEnable() =>
+        private void OnEnable()
+        {
             _buttonNotification.onClick.AddListener(CreateNotification);
+        }
 
-        private void OnDisable() =>
+
+        private void OnDisable()
+        {
             _buttonNotification.onClick.RemoveAllListeners();
+        }
 
         private void CreateNotification()
         {
