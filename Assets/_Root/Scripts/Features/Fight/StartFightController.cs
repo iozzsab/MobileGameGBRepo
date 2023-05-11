@@ -16,7 +16,7 @@ namespace Features.Fight
         {
             _profilePlayer = profilePlayer;
             _view = LoadView(placeForUi);
-            _view.Init(StartFight, EscapeToMenu);
+            _view.Init(StartFight);
         }
 
 
@@ -31,8 +31,5 @@ namespace Features.Fight
 
         private void StartFight() =>
             _profilePlayer.CurrentState.Value = GameState.Fight;
-        
-        private void EscapeToMenu() =>
-            _profilePlayer.CurrentState.Value = GameState.Start;
     }
 }

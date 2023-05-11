@@ -17,6 +17,9 @@ namespace Tool.Tween
         [SerializeField] private Ease _curveEase = Ease.Linear;
         [SerializeField] private float _duration = 0.6f;
         [SerializeField] private float _strength = 30f;
+        [SerializeField] private bool _isIndependentUpdate = true;
+
+        private Tweener _tweenAnimation;
 
 
         private void OnValidate() => InitComponents();
@@ -34,18 +37,27 @@ namespace Tool.Tween
 
         private void OnButtonClick() => ActivateAnimation();
 
+        [ContextMenu(nameof(ActivateAnimation))]
         private void ActivateAnimation()
         {
+            StopAnimation();
+
             switch (_animationButtonType)
             {
                 case AnimationButtonType.ChangeRotation:
-                    _rectTransform.DOShakeRotation(_duration, Vector3.forward * _strength).SetEase(_curveEase);
+                    _tweenAnimation = _rectTransform.DOShakeRotation(_duration, Vector3.forward * _strength)
+                        .SetEase(_curveEase).SetUpdate(_isIndependentUpdate);
                     break;
 
                 case AnimationButtonType.ChangePosition:
-                    _rectTransform.DOShakeAnchorPos(_duration, Vector2.one * _strength).SetEase(_curveEase);
+                    _tweenAnimation = _rectTransform.DOShakeAnchorPos(_duration, Vector2.one * _strength)
+                        .SetEase(_curveEase).SetUpdate(_isIndependentUpdate);
                     break;
             }
         }
+
+        [ContextMenu(nameof(StopAnimation))]
+        private void StopAnimation() =>
+            _tweenAnimation?.Kill();
     }
 }
