@@ -16,16 +16,45 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: 3a69f6d6fe619441494d1b07d7c6d064
   m_Entries:
   - m_Id: 22199394304
-    m_Key: translate_text
+    m_Key: setting_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 215662793531002880
+    m_Key: Setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 215663684866740224
+    m_Key: StartGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 215663904694407168
+    m_Key: Daily Reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 215664269452054528
+    m_Key: Shed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 215664472670277632
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 215664751033651200
+    m_Key: Rewarded
+    m_Metadata:
+      m_Items: []
+  - m_Id: 215664959696080896
+    m_Key: Buy Product
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    id: 0
+    rid: 0
   references:
-    version: 1
-    00000000:
+    version: 2
+    RefIds:
+    - rid: 0
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
         m_CustomEpoch: 1632412146711
